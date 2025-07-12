@@ -1,6 +1,14 @@
 {
     "name": "mohdraquib/laravel-secure-middleware",
     "description": "Laravel middleware to enforce HTTPS, HSTS, and WWW/Non-WWW redirection.",
+    "keywords": [
+        "laravel",
+        "secure middleware",
+        "hsts",
+        "always use https",
+        "force non www",
+        "force www"
+    ],
     "require": {
         "php": "^8.1"
     },
@@ -13,7 +21,7 @@
     "authors": [
         {
             "name": "Mohammad Raquib",
-            "email": "mohdraquib.hzb@gmail.com"
+            "email": "me@mohammadraquib.com"
         }
     ],
     "minimum-stability": "stable"
