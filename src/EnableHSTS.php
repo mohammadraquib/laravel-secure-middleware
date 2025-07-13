@@ -6,7 +6,7 @@ use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-class ForceNonWWW
+class EnableHSTS
 {
     /**
      * Handle an incoming request.
@@ -17,11 +17,10 @@ class ForceNonWWW
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if(substr($request->header('host'), 0, 4) !== 'www.') {
-            $wwwHost = 'www.' . $request->header('host');
-            $request->headers->set('host', $wwwHost);
-            return redirect($request->path(), 302, [], true);
+        $response = $next($request);
+        if($request->isSecure() && app()->environment('production')) {
+            $response->headers->set('Strict-Transport-Security', 'max-age=31536000; includeSubDomains; preload');
         }
-        return $next($request);
+        return $response;
     }
 }
