@@ -20,7 +20,7 @@ class ForceNonWWW
         if(substr($request->header('host'), 0, 4) !== 'www.') {
             $wwwHost = 'www.' . $request->header('host');
             $request->headers->set('host', $wwwHost);
-            return redirect($request->path(), 302, [], true);
+            return redirect($request->getRequestUri(), 302, [], true);
         }
         return $next($request);
     }

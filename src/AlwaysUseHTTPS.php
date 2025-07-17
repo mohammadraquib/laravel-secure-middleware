@@ -17,7 +17,7 @@ class AlwaysUseHTTPS
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if(!$request->secure() && app()->environment('production')) {
+        if(!$request->isSecure() && app()->environment('production')) {
             return redirect()->secure($request->getRequestUri());
         }
         return $next($request);
