@@ -1,7 +1,5 @@
 # Laravel Secure Middleware
 
-## Test
-
 A Laravel middleware package that enforces secure web behavior like automatic HTTPS redirection, forcing or removing `www.`, and setting the HSTS header for stricter browser security. Built for simplicity, flexibility, and modern Laravel projects.
 
 ## ✨ Features
